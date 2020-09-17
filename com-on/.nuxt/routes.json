@@ -1,0 +1,14 @@
+[
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/Users/baptiste.fortier/Documents/GitHub/Com-On/com-on/pages/inspire.vue",
+    "chunkName": "pages/inspire"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/baptiste.fortier/Documents/GitHub/Com-On/com-on/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
