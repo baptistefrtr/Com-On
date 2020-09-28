@@ -1,0 +1,278 @@
+<html style="padding: 0; margin: 0">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://use.typekit.net/zti3mur.css">
+    </head>
+
+    <body style="padding: 0; margin: 0">
+        <video autoplay muted loop id="myVideo">
+            <source src="./space01.mp4" type="video/mp4">
+        </video>
+
+        <div class="head_left">
+            <img src="./logo.png" alt="" style="width: 250px;">
+        </div>
+
+        <div class="compteur" style="color: white">
+            <div id="compte_a_rebours" style="border-style: solid; border-width: thin; padding: 10px"><noscript>Fin de l'évènement le 1er janvier 2021.</noscript></div>
+                <script type="text/javascript">
+                function compte_a_rebours()
+                {
+                    var compte_a_rebours = document.getElementById("compte_a_rebours");
+
+                    var date_actuelle = new Date();
+                    var date_evenement = new Date("Jan 1 00:00:00 2021");
+                    var total_secondes = (date_evenement - date_actuelle) / 1000;
+
+                    if (total_secondes < 0)
+                    {
+                        prefixe = "Compte à rebours terminé il y a "; // On modifie le préfixe si la différence est négatif
+                        total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
+                    }
+
+                    if (total_secondes > 0)
+                    {
+                        var jours = Math.floor(total_secondes / (60 * 60 * 24));
+                        var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
+                        minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+                        secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+
+                        if (jours == 0)
+                        {
+                            jours = '';
+                            mot_jour = '';
+                        }
+                        else if (jours == 1)
+                        {
+                            mot_jour = "jour,";
+                        }
+
+                        if (heures == 0)
+                        {
+                            heures = '';
+                            mot_heure = '';
+                        }
+                        else if (heures == 1)
+                        {
+                            mot_heure = "heure,";
+                        }
+
+                        if (minutes == 0)
+                        {
+                            minutes = '';
+                            mot_minute = '';
+                        }
+                        else if (minutes == 1)
+                        {
+                            mot_minute = "minute,";
+                        }
+
+                        if (secondes == 0)
+                        {
+                            secondes = '';
+                            mot_seconde = '';
+                            et = '';
+                        }
+                        else if (secondes == 1)
+                        {
+                            mot_seconde = "seconde";
+                        }
+
+                        if (minutes == 0 && heures == 0 && jours == 0)
+                        {
+                            et = "";
+                        }
+
+                        compte_a_rebours.innerHTML = jours  + ' : ' + heures + ' : ' +  minutes + ' : ' + secondes;
+                    }
+                    else
+                    {
+                        compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+                    }
+
+                    var actualisation = setTimeout("compte_a_rebours();", 1000);
+                }
+                compte_a_rebours();
+                </script>
+            </div>
+        </div>
+
+        <div class="form_1">
+            <form action="" method="get" class="form-example">
+                <input class="input_1" type="text" placeholder="Mail">
+            </form>
+        </div>
+          
+          <!-- Optional: some overlay text to describe the video -->
+        <div class="content">
+            <a href="https://twitter.com/ComonFR">
+                <img src="./round-twitter.png" alt="" style="width: 40px">
+            </a>
+            <a href="https://www.facebook.com/FRComon">
+                <img src="./round-facebook.png" alt="" style="width: 60px">
+            </a>
+            <a href="https://www.instagram.com/comon.fr/">
+                <img src="./round-instagram.png" alt="" style="width: 40px">
+            </a>
+        </div>
+        <div class="head_right">
+            <button class="b1" href id="myBtn" style="font-size: 25px; font-weight: 1px"><p style="padding: 0; margin: 0; font-weight: 100">About Us</p></button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p style="padding: 10px">Com'on est un projet EIP réalisé par 8 étudiants d'Epitech Lille. Notre objectif est de rendre la vie de tout les jours plus simple, pour chaque personne dans notre société. Grâce à notre application, obtenez un compagnon de mobilité sécurisé et adapté à vos besoins. Com'on s'adapte en fonction de votre situation, pour vous offrir une expérience personnalisée.</p>
+                    <p style="padding: 10px">Rejoignez-nous sur les différents réseaux sociaux pour être tenu au courant de l'avancée de notre projet !</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Comfortaa');
+    /* Style the video: 100% width and height to cover the entire window */
+    #myVideo {
+        font-family: 'Comfortaa';
+        position: fixed;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .form_1 {
+        font-family: 'Comfortaa';
+        position: fixed;
+        top: 60%;
+        padding-left: 25%;
+        font-size: 60px;
+    }
+
+    .input_1 {
+        width: 875px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    /* Add some content at the bottom of the video/page */
+    .content {
+        font-family: 'Comfortaa';
+        position: fixed;
+        bottom: 0;
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .head_left {
+        font-family: 'Comfortaa';
+        position: fixed;
+        top: 0;
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .head_right {
+        font-family: 'Comfortaa';
+        position: fixed;
+        top: 0;
+        color: #f1f1f1;
+        width: 100%;
+        padding-left: 92%;
+        padding-top: 2%;
+    }
+    .compteur {
+        font-family: 'Comfortaa';
+        position: fixed;
+        top: 40%;
+        padding-left: 40%;
+        font-size: 60px;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 350px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+/* Modal Content */
+    .modal-content {
+        background-color: black;
+        margin: auto;
+        padding: 50px;
+        width: 35%;
+    }
+
+/* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .b1 {
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 20px;
+    }
+    .b1:hover {
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        color: #aaaaaa;
+        font-size: 20px;
+    }
+</style>
